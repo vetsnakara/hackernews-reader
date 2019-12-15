@@ -28,6 +28,10 @@ class HttpService {
     return Promise.reject(error);
   }
 
+  get(path) {
+    return this.client.get(path).then(response => response.data);
+  }
+
   post(path, payload) {
     return this.client.post(path, payload).then(response => response.data);
   }

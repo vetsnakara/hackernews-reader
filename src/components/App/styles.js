@@ -3,6 +3,7 @@ import { tablet } from "../../styles/mediaQueries";
 
 export const Wrapper = styled.div`
   width: 85%;
+  height: 100%;
   margin: 0 auto;
   height: 100%;
   overflow: hidden;
