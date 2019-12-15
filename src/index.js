@@ -1,11 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
+import { Provider as StoreProvider } from "react-redux";
+import { ThemeProvider } from "styled-components";
 
 import GlobalStyles from "./styles/globals";
-import configureStore from "./store";
-
 import App from "./components/App";
+
+import { colorsDark } from "./styles/pallete";
+import configureStore from "./store";
 
 const store = configureStore({});
 
@@ -15,10 +17,12 @@ if (process.env.NODE_ENV !== "production") {
 
 ReactDOM.render(
   <React.Fragment>
-    <GlobalStyles />
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <StoreProvider store={store}>
+      <ThemeProvider theme={colorsDark}>
+        <GlobalStyles />
+        <App />
+      </ThemeProvider>
+    </StoreProvider>
   </React.Fragment>,
   document.getElementById("root")
 );

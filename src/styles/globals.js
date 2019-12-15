@@ -1,6 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
+  #root {
+    height: 100%;
+  }
+
   html {
     box-sizing: border-box
   }
@@ -14,9 +18,14 @@ const GlobalStyles = createGlobalStyle`
   html, body {
     font-family: Lato, Helvetica-Neue, Helvetica, Arial, sans-serif;
     width: 100vw;
+    height: 100%;
     overflow-x: hidden;
     margin: 0;
     padding: 0;
+  }
+
+  body {
+    background-color: ${({ theme }) => theme.background}
   }
 
   ul {

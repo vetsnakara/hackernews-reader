@@ -1,7 +1,14 @@
 import React from "react";
+import List from "../List";
+import { Wrapper, Title } from "./styles";
 
-function App() {
-  return <div>app</div>;
-}
+const App = () => {
+  return (
+    <Wrapper>
+      <Title>{"//"} Hacker News Reader</Title>
+      <List />
+    </Wrapper>
+  );
+};
 
 export default App;
