@@ -9,11 +9,9 @@ import App from "./components/App";
 import { colorsDark } from "./styles/pallete";
 import configureStore from "./store";
 
-const store = configureStore({});
+import { doFetchStories } from "./actions/storyActions";
 
-if (process.env.NODE_ENV !== "production") {
-  store.dispatch({ type: "@hnApp/@@INIT" });
-}
+const store = configureStore({});
 
 ReactDOM.render(
   <React.Fragment>
@@ -26,3 +24,5 @@ ReactDOM.render(
   </React.Fragment>,
   document.getElementById("root")
 );
+
+store.dispatch(doFetchStories());
