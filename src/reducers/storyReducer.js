@@ -1,14 +1,12 @@
 import {
   FETCH_STORIES_REQUEST,
   FETCH_STORIES_SUCCESS,
-  FETCH_STORIES_FAILURE,
-  FETCH_STORIES_IDS
+  FETCH_STORIES_FAILURE
 } from "../constants/actionTypes";
 
 const initialState = {
-  ids: [],
   stories: [],
-  page: 0,
+  page: -1,
   isFetching: false,
   error: null
 };
@@ -21,32 +19,27 @@ const storyReducer = (state = initialState, action) => {
       return applyFetchStoriesSuccess(state, action);
     case FETCH_STORIES_FAILURE:
       return applyFetchStoriesFailure(state, action);
-    case FETCH_STORIES_IDS:
-      return applyFetchStoriesIds(state, action);
     default:
       return state;
   }
 };
 
-const applyFetchStoriesIds = (state, { payload: { ids } }) => {
-  return {
-    ...state,
-    ids
-  };
-};
-
 const applyFetchStoriesRequest = (state, action) => {
   return {
     ...state,
-    isFetching: true
+    isFetching: true,
+    error: null
   };
 };
 
-const applyFetchStoriesSuccess = (state, { payload: { stories, page } }) => {
+const applyFetchStoriesSuccess = (
+  state,
+  { payload: { stories, nextPage } }
+) => {
   return {
     ...state,
     stories: [...state.stories, ...stories],
-    page,
+    page: nextPage,
     isFetching: false,
     error: null
   };

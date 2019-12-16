@@ -9,7 +9,7 @@ import App from "./components/App";
 import { colorsDark } from "./styles/pallete";
 import configureStore from "./store";
 
-import { doFetchStories } from "./actions/storyActions";
+import { doInitialStoriesFetch, doFetchStories } from "./actions/storyActions";
 
 const store = configureStore({});
 
@@ -25,4 +25,5 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
+store.dispatch(doInitialStoriesFetch());
 store.dispatch(doFetchStories());
