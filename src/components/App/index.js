@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import List from "../List";
+import Loader from "../Loader";
 import { Wrapper, Title } from "./styles";
 
 import { doInitialStoriesFetch } from "../../actions/storyActions";
@@ -13,6 +14,7 @@ const App = ({ fetchStoriesFirstPage }) => {
 
   return (
     <Wrapper>
+      <Loader />
       <Title>{"//"} Hacker News Reader</Title>
       <List />
     </Wrapper>
