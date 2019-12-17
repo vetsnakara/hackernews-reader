@@ -24,7 +24,8 @@ const ListItem = ({
     <Item>
       <ExternalLink href={url} target="_blank">
         <Title>
-          {title} <Host>({host})</Host>
+          <span dangerouslySetInnerHTML={{ __html: title }} />{" "}
+          <Host>({host})</Host>
         </Title>
       </ExternalLink>
       <Description>
