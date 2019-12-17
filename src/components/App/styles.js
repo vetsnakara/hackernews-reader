@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   height: 100%;
   margin: 0 auto;
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   padding-bottom: 200px;
 
   ${tablet} {

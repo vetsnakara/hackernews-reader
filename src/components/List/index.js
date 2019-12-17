@@ -1,16 +1,22 @@
 import React from "react";
+import { connect } from "react-redux";
 import ListItem from "../ListItem";
 import { ListWrapper } from "./styles";
 
-const List = () => {
+const List = ({ stories }) => {
   return (
     <ListWrapper>
-      <ListItem />
-      <ListItem />
-      <ListItem />
-      <ListItem />
+      {stories.map(story => (
+        <ListItem key={story.id} story={story} />
+      ))}
     </ListWrapper>
   );
 };
 
-export default List;
+const mapState = state => {
+  return {
+    stories: state.storyState.stories
+  };
+};
+
+export default connect(mapState)(List);

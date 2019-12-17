@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+
 import List from "../List";
 import { Wrapper, Title } from "./styles";
 
-const App = () => {
+import { doInitialStoriesFetch } from "../../actions/storyActions";
+
+const App = ({ fetchStoriesFirstPage }) => {
+  useEffect(() => {
+    fetchStoriesFirstPage();
+  }, [fetchStoriesFirstPage]);
+
   return (
     <Wrapper>
       <Title>{"//"} Hacker News Reader</Title>
@@ -11,4 +19,10 @@ const App = () => {
   );
 };
 
-export default App;
+const mapDispatch = dispatch => {
+  return {
+    fetchStoriesFirstPage: () => dispatch(doInitialStoriesFetch())
+  };
+};
+
+export default connect(null, mapDispatch)(App);
