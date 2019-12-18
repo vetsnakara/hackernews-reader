@@ -18,7 +18,6 @@ const GlobalStyles = createGlobalStyle`
   html, body {
     font-family: Lato, Helvetica-Neue, Helvetica, Arial, sans-serif;
     width: 100vw;
-    height: 100%;
     overflow-x: hidden;
     margin: 0;
     padding: 0;

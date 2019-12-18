@@ -7,11 +7,9 @@ import {
   FETCH_IDS_FAILURE
 } from "../constants/actionTypes";
 
-import api from "../services/hackerNewsApi";
+import { isFetching } from "../selectors";
 
-const isFetching = ({ storyState, idState }) => {
-  return storyState.isFetching || idState.isFetching;
-};
+import api from "../services/hackerNewsApi";
 
 const doFetchIds = () => async (dispatch, getState) => {
   try {
@@ -20,7 +18,7 @@ const doFetchIds = () => async (dispatch, getState) => {
     dispatch({ type: FETCH_IDS_REQUEST });
 
     const ids = await api.getTopStoriesIds();
-    dispatch({ type: FETCH_IDS_SUCCESS, payload: { ids } });
+    dispatch({ type: FETCH_IDS_SUCCESS, payload: { ids: ids.slice(0, 50) } });
   } catch (error) {
     dispatch({ type: FETCH_IDS_FAILURE, payload: { error } });
   }

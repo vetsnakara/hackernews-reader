@@ -1,3 +1,6 @@
+// todo: up button
+// todo: error handling
+
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
@@ -6,27 +9,55 @@ import Loader from "../Loader";
 import InfiniteScroll from "../InfiniteScroll";
 import { Wrapper, Title } from "./styles";
 
-import { doInitialStoriesFetch } from "../../actions/storyActions";
+import {
+  doInitialStoriesFetch,
+  doFetchStories
+} from "../../actions/storyActions";
 
-const App = ({ fetchStoriesFirstPage }) => {
+import { isFetching, hasMoreStories } from "../../selectors";
+
+const App = ({
+  fetchStoriesFirstPage,
+  fetchStories,
+  isFetching,
+  hasMoreStories
+}) => {
   useEffect(() => {
     fetchStoriesFirstPage();
-  }, [fetchStoriesFirstPage]);
+  }, []);
+
+  console.log("============== render App");
+  console.log("hasMore", hasMoreStories);
+  console.log("isLoading", isFetching);
 
   return (
     <Wrapper>
-      <Loader />
       <Title>{"//"} Hacker News Reader</Title>
-      <List />
-      <InfiniteScroll />
+      <InfiniteScroll
+        next={fetchStories}
+        loader={<Loader />}
+        isLoading={isFetching}
+        hasMore={hasMoreStories}
+        endMessage={<p style={{ color: "#fff" }}>No more stories</p>}
+      >
+        <List />
+      </InfiniteScroll>
     </Wrapper>
   );
 };
 
-const mapDispatch = dispatch => {
+const mapState = state => {
   return {
-    fetchStoriesFirstPage: () => dispatch(doInitialStoriesFetch())
+    isFetching: isFetching(state),
+    hasMoreStories: hasMoreStories(state)
   };
 };
 
-export default connect(null, mapDispatch)(App);
+const mapDispatch = dispatch => {
+  return {
+    fetchStoriesFirstPage: () => dispatch(doInitialStoriesFetch()),
+    fetchStories: () => dispatch(doFetchStories())
+  };
+};
+
+export default connect(mapState, mapDispatch)(App);

@@ -1,18 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import useInfiniteScroll from "./useInfiniteScroll";
 
-const handleScroll = () => console.log("scroll");
+const InfiniteScroll = ({
+  next,
+  hasMore,
+  isLoading,
+  loader,
+  endMessage,
+  children
+}) => {
+  useInfiniteScroll(isLoading, hasMore, next);
 
-const InfiniteScroll = () => {
-  useEffect(() => {
-    console.log("add scroll listener");
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      console.log("remove scroll listener");
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  return null;
+  return (
+    <React.Fragment>
+      {children}
+      {isLoading && hasMore && loader}
+      {!hasMore && endMessage}
+    </React.Fragment>
+  );
 };
 
 export default InfiniteScroll;
