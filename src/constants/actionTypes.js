@@ -1,5 +1,5 @@
 // app
-export const SET_THEME = "SET_THEME";
+export const TOGGLE_THEME = "TOGGLE_THEME";
 
 // story
 export const FETCH_IDS_REQUEST = "FETCH_STORIES_IDS_REQUEST";

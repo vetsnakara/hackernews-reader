@@ -1,8 +1,7 @@
-import { SET_THEME } from "../constants/actionTypes";
+import { TOGGLE_THEME } from "../constants/actionTypes";
 
-export const doSetTheme = theme => {
+export const doToggleTheme = () => {
   return {
-    type: SET_THEME,
-    theme
+    type: TOGGLE_THEME
   };
 };

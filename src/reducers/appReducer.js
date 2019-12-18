@@ -1,4 +1,4 @@
-import { SET_THEME } from "../constants/actionTypes";
+import { TOGGLE_THEME } from "../constants/actionTypes";
 
 const initialState = {
   theme: "dark"
@@ -6,17 +6,16 @@ const initialState = {
 
 const appReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_THEME:
-      return applySetTheme(state, action);
+    case TOGGLE_THEME:
+      return applyToggleTheme(state);
     default:
       return state;
   }
 };
 
-const applySetTheme = (state, { payload: { theme } }) => {
+const applyToggleTheme = state => {
   return {
-    ...state,
-    theme
+    theme: state.theme === "dark" ? "light" : "dark"
   };
 };
 

@@ -1,13 +1,27 @@
 // todo: up button
 // todo: error handling
+// todo: add separate reducer for loading state (or add loading and error state in appState, use OR logic)
+// todo: style end message
+// todo: add theme toggling
+// todo: add grid toggling
+// todo: check debounce correctness
+// todo: no fetchches after hasMore = false
+// todo: correct colors in light mode
+// todo: separate presentational and container components
+// todo: fix styles in FF
+// todo: check responsive
+// todo: use Helmet for metadata (title, etc)
+// todo: check origin repo for thoughts
 
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
+import Header from "../Header";
 import List from "../List";
 import Loader from "../Loader";
 import InfiniteScroll from "../InfiniteScroll";
-import { Wrapper, Title } from "./styles";
+
+import { Wrapper } from "./styles";
 
 import {
   doInitialStoriesFetch,
@@ -32,7 +46,7 @@ const App = ({
 
   return (
     <Wrapper>
-      <Title>{"//"} Hacker News Reader</Title>
+      <Header />
       <InfiniteScroll
         next={fetchStories}
         loader={<Loader />}
