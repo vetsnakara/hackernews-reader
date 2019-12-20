@@ -1,5 +1,5 @@
 import React from "react";
-import useInfiniteScroll from "./useInfiniteScroll";
+import useInfiniteScroll from "../../hooks/useInfiniteScroll";
 
 const InfiniteScroll = ({
   next,

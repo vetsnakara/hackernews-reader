@@ -10,13 +10,10 @@ const useInfiniteScroll = (isLoading, hasMore, next) => {
     const isBottomReached =
       windowHeight + documentScroll > documentHeight - 0.05 * windowHeight;
 
-    console.log(hasMore, !isLoading, isBottomReached);
-
     if (hasMore && !isLoading && isBottomReached) next();
   }, 400);
 
   useEffect(() => {
-    // console.log("use effect");
     window.removeEventListener("scroll", handleScroll);
     window.addEventListener("scroll", handleScroll, true);
     return () => window.removeEventListener("scroll", handleScroll);

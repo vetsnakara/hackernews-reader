@@ -1,9 +1,22 @@
 import styled from "styled-components";
+import { Container as CommonContainer } from "../../styles/utils";
 
-export const Wrapper = styled.header`
+export const Container = styled(CommonContainer)`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: ${({ theme }) => theme.background};
+`;
+
+export const Wrapper = styled.header`
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  ${({ isSticky, theme }) =>
+    isSticky && `border-bottom: 1px solid ${theme.textSecondary}`};
 `;
 
 export const Title = styled.h1`

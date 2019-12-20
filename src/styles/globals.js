@@ -2,7 +2,9 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
   #root {
+    position: relative;
     height: 100%;
+    padding-top: 80px;
   }
 
   html {
@@ -30,6 +32,7 @@ const GlobalStyles = createGlobalStyle`
   ul {
     list-style: none;
     padding: 0;
+    margin: 0;
   }
 
   a {

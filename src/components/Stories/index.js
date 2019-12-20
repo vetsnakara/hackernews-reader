@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import List from "../List";
 import Grid from "../Grid";
 
+import { Wrapper } from "./styles";
+
 const Stories = ({ stories, layout }) => {
   return layout === "list" ? (
     <List items={stories} />

@@ -14,7 +14,9 @@
 // todo: check origin repo for thoughts
 // todo: add PropTypes
 // todo: make dir components/layout for Grid, List, Header (they should be abstract components)
-// todo: make sticky header
+// todo: make sticky header cusotom hook with hoc
+// todo: add hook for up button
+// todo: fix small shift header to left
 
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
@@ -24,7 +26,7 @@ import Stories from "../Stories";
 import Loader from "../Loader";
 import InfiniteScroll from "../InfiniteScroll";
 
-import { Wrapper } from "./styles";
+import { Container } from "../../styles/utils";
 
 import {
   doInitialStoriesFetch,
@@ -43,23 +45,21 @@ const App = ({
     fetchStoriesFirstPage();
   }, []);
 
-  console.log("============== render App");
-  console.log("hasMore", hasMoreStories);
-  console.log("isLoading", isFetching);
-
   return (
-    <Wrapper>
+    <React.Fragment>
       <Header />
-      <InfiniteScroll
-        next={fetchStories}
-        loader={<Loader />}
-        isLoading={isFetching}
-        hasMore={hasMoreStories}
-        endMessage={<p style={{ color: "#fff" }}>No more stories</p>}
-      >
-        <Stories />
-      </InfiniteScroll>
-    </Wrapper>
+      <Container>
+        <InfiniteScroll
+          next={fetchStories}
+          loader={<Loader />}
+          isLoading={isFetching}
+          hasMore={hasMoreStories}
+          endMessage={<p style={{ color: "#fff" }}>No more stories</p>}
+        >
+          <Stories />
+        </InfiniteScroll>
+      </Container>
+    </React.Fragment>
   );
 };
 
