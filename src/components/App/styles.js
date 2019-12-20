@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   padding-bottom: 100px;
 
   ${tablet} {
-    width: 96%;
+    width: 100%;
+    padding: 0 20px;
   }
 `;

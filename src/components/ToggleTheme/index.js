@@ -1,13 +1,18 @@
 import React from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
 
-import { Button } from "./styles";
+import Toggle from "../Toggle";
 
 const ToggleTheme = ({ theme, onToggle }) => {
   return (
-    <Button type="button" onClick={onToggle}>
-      {theme === "dark" ? <FaSun size="24" /> : <FaMoon size="20" />}
-    </Button>
+    <Toggle
+      isOn={() => theme === "dark"}
+      icons={{
+        IconOn: <FaSun size="22" />,
+        IconOff: <FaMoon size="22" />
+      }}
+      onToggle={onToggle}
+    />
   );
 };
 

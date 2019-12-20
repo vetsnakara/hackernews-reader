@@ -1,5 +1,6 @@
 // app
 export const TOGGLE_THEME = "TOGGLE_THEME";
+export const TOGGLE_LAYOUT = "TOGGLE_LAYOUT";
 
 // story
 export const FETCH_IDS_REQUEST = "FETCH_STORIES_IDS_REQUEST";

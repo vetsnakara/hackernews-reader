@@ -4,7 +4,6 @@ import { ThemeProvider } from "styled-components";
 import { colorsDark, colorsLight } from "../../styles/pallete";
 
 const Theme = ({ children, theme }) => {
-  console.log(theme);
   return (
     <ThemeProvider theme={theme === "dark" ? colorsDark : colorsLight}>
       {children}

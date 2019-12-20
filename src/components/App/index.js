@@ -12,12 +12,15 @@
 // todo: check responsive
 // todo: use Helmet for metadata (title, etc)
 // todo: check origin repo for thoughts
+// todo: add PropTypes
+// todo: make dir components/layout for Grid, List, Header (they should be abstract components)
+// todo: make sticky header
 
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import Header from "../Header";
-import List from "../List";
+import Stories from "../Stories";
 import Loader from "../Loader";
 import InfiniteScroll from "../InfiniteScroll";
 
@@ -54,7 +57,7 @@ const App = ({
         hasMore={hasMoreStories}
         endMessage={<p style={{ color: "#fff" }}>No more stories</p>}
       >
-        <List />
+        <Stories />
       </InfiniteScroll>
     </Wrapper>
   );

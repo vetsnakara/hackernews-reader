@@ -12,7 +12,7 @@ import {
 } from "./styles";
 
 const ListItem = ({
-  story: { id: storyId, title, by: userId, kids: commentIds, score, url, time }
+  item: { id: storyId, title, by: userId, kids: commentIds, score, url, time }
 }) => {
   const host = getSiteHostName(url, "news.ycombinator.com");
   const userUrl = getUserUrl(userId);
