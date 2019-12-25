@@ -1,32 +1,6 @@
-// todo: up button
-// todo: error handling
-// todo: add separate reducer for loading state (or add loading and error state in appState, use OR logic)
-// todo: style end message
-// todo: add theme toggling
-// todo: add grid toggling
-// todo: check debounce correctness
-// todo: no fetchches after hasMore = false
-// todo: correct colors in light mode
-// todo: separate presentational and container components
-// todo: fix styles in FF
-// todo: check responsive
-// todo: use Helmet for metadata (title, etc)
-// todo: check origin repo for thoughts
-// todo: add PropTypes
-// todo: make dir components/layout for Grid, List, Header (they should be abstract components)
-// todo: make sticky header cusotom hook with hoc
-// todo: add hook for up button
-// todo: fix small shift header to left
-
-import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
-import Header from "../Header";
-import Stories from "../Stories";
-import Loader from "../Loader";
-import InfiniteScroll from "../InfiniteScroll";
-
-import { Container } from "../../styles/utils";
+import App from "./App";
 
 import {
   doInitialStoriesFetch,
@@ -34,34 +8,6 @@ import {
 } from "../../actions/storyActions";
 
 import { isFetching, hasMoreStories } from "../../selectors";
-
-const App = ({
-  fetchStoriesFirstPage,
-  fetchStories,
-  isFetching,
-  hasMoreStories
-}) => {
-  useEffect(() => {
-    fetchStoriesFirstPage();
-  }, []);
-
-  return (
-    <React.Fragment>
-      <Header />
-      <Container>
-        <InfiniteScroll
-          next={fetchStories}
-          loader={<Loader />}
-          isLoading={isFetching}
-          hasMore={hasMoreStories}
-          endMessage={<p style={{ color: "#fff" }}>No more stories</p>}
-        >
-          <Stories />
-        </InfiniteScroll>
-      </Container>
-    </React.Fragment>
-  );
-};
 
 const mapState = state => {
   return {

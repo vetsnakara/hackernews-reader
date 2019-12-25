@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { ThemeProvider } from "styled-components";
+
 import { colorsDark, colorsLight } from "../../styles/pallete";
 
 const Theme = ({ children, theme }) => {
