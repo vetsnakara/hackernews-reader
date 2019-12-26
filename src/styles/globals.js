@@ -1,10 +1,15 @@
 import { createGlobalStyle } from "styled-components";
+import { mobile } from "./mediaQueries";
 
 const GlobalStyles = createGlobalStyle`
   #root {
     position: relative;
     height: 100%;
     padding-top: 80px;
+
+    ${mobile} {
+      padding-top: 60px;
+    }
   }
 
   html {
@@ -26,7 +31,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background-color: ${({ theme }) => theme.background}
+    background-color: ${({ theme }) => theme.background};
+    min-width: 320px;
   }
 
   ul {

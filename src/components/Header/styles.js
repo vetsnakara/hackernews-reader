@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Container as CommonContainer } from "../../styles/utils";
+import { mobile } from "../../styles/mediaQueries";
 
 export const Container = styled(CommonContainer)`
   display: flex;
@@ -25,6 +26,10 @@ export const Title = styled.h1`
   font-weight: 300;
   margin-top: 24px;
   margin-bottom: 26px;
+
+  ${mobile} {
+    margin: 15px 0;
+  }
 `;
 
 export const ToggleTitle = styled.span`
