@@ -4,6 +4,7 @@ import Header from "../Header";
 import Stories from "../Stories";
 import Loader from "../Loader";
 import InfiniteScroll from "../InfiniteScroll";
+import Message from "../Message";
 
 import { Container } from "../../styles/utils";
 
@@ -26,7 +27,7 @@ const App = ({
           loader={<Loader />}
           isLoading={isFetching}
           hasMore={hasMoreStories}
-          endMessage={<p style={{ color: "#fff" }}>No more stories</p>}
+          endMessage={<Message>No more stories</Message>}
         >
           <Stories />
         </InfiniteScroll>
