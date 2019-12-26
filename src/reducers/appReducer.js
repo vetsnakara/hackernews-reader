@@ -2,7 +2,7 @@ import { TOGGLE_THEME, TOGGLE_LAYOUT } from "../constants/actionTypes";
 
 const initialState = {
   theme: "dark",
-  layout: "grid"
+  layout: "list"
 };
 
 const appReducer = (state = initialState, action) => {

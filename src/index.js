@@ -8,7 +8,7 @@ import Theme from "./components/Theme";
 
 import configureStore from "./store";
 
-const store = configureStore({});
+const store = configureStore();
 
 ReactDOM.render(
   <React.Fragment>
