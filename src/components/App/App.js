@@ -5,8 +5,11 @@ import Stories from "../Stories";
 import Loader from "../Loader";
 import InfiniteScroll from "../InfiniteScroll";
 import Message from "../Message";
+import UpButton from "../UpButton";
 
 import { Container } from "../../styles/utils";
+
+import useScrollUp from "../../hooks/useScrollUp";
 
 const App = ({
   fetchStoriesFirstPage,
@@ -14,6 +17,8 @@ const App = ({
   isFetching,
   hasMoreStories
 }) => {
+  const isScrollEnabled = useScrollUp();
+
   useEffect(() => {
     fetchStoriesFirstPage();
   }, []);
@@ -31,6 +36,7 @@ const App = ({
         >
           <Stories />
         </InfiniteScroll>
+        {isScrollEnabled && <UpButton />}
       </Container>
     </React.Fragment>
   );
