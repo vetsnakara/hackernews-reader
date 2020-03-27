@@ -1,68 +1,75 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<a href="https://codesandbox.io/s/github/vetsnakara/hackernews-reader/tree/master/?fontsize=14&hidenavigation=1&theme=dark">
+  <img height="20" alt="Edit hackernews-reader" src="https://codesandbox.io/static/img/play-codesandbox.svg">
+</a>
 
-## Available Scripts
+<a href="https://standardjs.com">
+  <img height="20" src="https://img.shields.io/badge/code_style-standard-brightgreen.svg"/>
+</a>
 
-In the project directory, you can run:
+<h2>
+  <a href="https://modest-wescoff-ef0e02.netlify.com/" target="_blank">Hackernews Reader</a>
+</h2>
 
-### `npm start`
+> Yet another (soft) Hacker News clone w/ some advanced UI features. Uses React, Redux, Styled Components and so on.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 📺 Preview
+  <table style="width: 100%; background-color: white">
+  <tr>
+    <th>Light</th>
+    <th>Dark</th>
+  </tr>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/vetsnakara/hackernews-reader/master/preview/list-light.png"/></td>
+    <td><img src="https://raw.githubusercontent.com/vetsnakara/hackernews-reader/master/preview/list-dark.png"/></td>
+  </tr>
+  </table>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<details>
+<summary>other views 👀</summary>
+  <table style="width: 100%; background-color: white">
+  <tr>
+    <th>Light</th>
+    <th>Dark</th>
+  </tr>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/vetsnakara/hackernews-reader/master/preview/grid-light.png"/></td>
+    <td><img src="https://raw.githubusercontent.com/vetsnakara/hackernews-reader/master/preview/grid-dark.png"/></td>
+  </tr>
+  </table>
+</details>
 
-### `npm test`
+### ✨ Features
+* Use [Hacker News API](https://hacker-news.firebaseio.com/v0)
+* Theme toggle button (light/dark)
+* Layout toggle button (grid/list)
+* Go up button
+* Custom Tooltips (based on render props pattern)
+* Persisting app state w/ localStorage (custom hook)
+* Infinite scroll (custom hook)
+* Sticky header (custom hook)
+* Loading indicator
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🛠️ Technologies
+* __React__ for UI rendering
+* __Redux__ for state management
+* __Redux Thunk__ for side effetcts
+* __Reselect__ for memoized selectors
+* __Styled Components__ for styles and theming
+* __React Scroll__ for animating vertical scrolling
+* __Create React App__ to bootstrap a project
+* __Axios__ for network requests
+* __CSS grid & flexbox__ for layout
+* __CSS animations__ for custom loader
+* __lodash__ for throttling and debouncing in hooks
 
-### `npm run build`
+### 🚀 Setup
+``` sh
+$ git clone https://github.com/vetsnakara/hackernews-reader.git
+$ cd hackernews-reader
+$ npm install
+$ npm start
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### 👷 Author
+**Konstantin Arakantsev**
+- Github: [@vetsnakara](https://github.com/vetsnakara)
